@@ -112,9 +112,36 @@ console.log(multiply(9, -3))
 
 // 일반적인 화살표 함수 (중괄호 {}와 return 키워드 사용)
 // 명시적 반환(Explicit Return) 함수 정의 (x + y 반환)
+const px2rem = (pxValue/* 100px */) => {
+  // 16px === 1rem
+  return parseFloat(pxValue) / 16 + 'rem'
+}
+
+console.log(px2rem(16))
+console.log(px2rem('16'))
+console.log(px2rem('16px'))
+
 
 // 암묵적 반환을 사용하는 화살표 함수 (중괄호 {}와 return 생략)
 // 암묵적 반환(Implicit Return) 함수 정의 (x + y 반환)
+
+// 명시적 반환
+// const rem2px = (remValue) => {
+//   return parseFloat(remValue) * 16 + 'px'
+// }
+
+// 변신 1. 매개변수 1개 (소괄호 생략 가능)
+// const rem2px = remValue => {
+//   return parseFloat(remValue) * 16 + 'px'
+// }
+
+// 변신 2. 암묵적 반환
+const rem2px = remValue => parseFloat(remValue) * 16 + 'px'
+
+console.log(rem2px(2))
+console.log(rem2px('2'))
+console.log(rem2px('2rem'))
+
 
 // 두 함수의 결과 비교 출력
 
@@ -122,6 +149,18 @@ console.log(multiply(9, -3))
 // 본문이 한 줄이고 중괄호가 없으면, 자동으로 계산된 값이 반환되도록 작동합니다.
 // 출력 결과: 두 함수 모두 동일한 덧셈 결과 출력
 
+// 함수 표현식 (주관적 의견: ⭐️⭐️)
+// const plus = function (x, y) { return x + y }
+// const minus = function (x, y) { return x - y }
+// const multiple = function (x, y) { return x * y }
+// const divide = function (x, y) { return x / y }
+
+// 화살표 함수 표현식 (주관적 의견: ⭐️⭐️⭐️⭐️⭐️)
+const plus = (x, y) => x + y
+const minus = (x, y) => x - x
+const multiple = (x, y) => x * y
+const divide = (x, y) => x / y
+const double = x => x ** 2
 
 // --------------------------------------------------------------------------
 // 객체(Object) 반환 시 주의사항
