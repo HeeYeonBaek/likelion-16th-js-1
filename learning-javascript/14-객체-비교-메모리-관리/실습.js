@@ -41,18 +41,21 @@
 
 // 야무 객체 생성
 // isHavingFun 속성: true
-
+const yamoo = { isHavingFun: true }
 
 // 지니 객체 생성
 // isHavingFun 속성: true
-
+const jini = { isHavingFun: true }
 
 // 야무와 지니를 === 연산자로 비교한 결과 출력
-
+console.log(yamoo == jini)
+console.log(yamoo === jini)
 
 // 설명:
 // 두 객체의 내용은 같지만, 메모리의 서로 다른 위치에 저장되어 있습니다.
 // === 연산자는 객체의 주소(참조)를 비교하므로 false가 반환됩니다.
+console.log({ isHavingFun: true } === { isHavingFun: true })
+console.log('0x0010101010' === '0x0010101011')
 
 // 출력 결과:
 // false
@@ -63,19 +66,25 @@
 // --------------------------------------------------------------------------
 
 // name 변수에 '네무' 할당
-
+const name = '네무'
+console.log(name)
 
 // new_name 변수에 name 값 복사
+let new_name = name
+console.log(new_name)
 
+console.log(name === new_name)
 
 // new_name 변수를 '야무'로 변경
-
+new_name = '야무'
 
 // name 변수 출력
-
+console.log(name)
 
 // new_name 변수 출력
+console.log(new_name)
 
+console.log(name === new_name)
 
 // 설명:
 // 기본 타입은 스택(Stack)에 값 자체가 저장됩니다.
