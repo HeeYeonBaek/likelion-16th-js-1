@@ -19,19 +19,19 @@
 // --------------------------------------------------------------------------
 
 // 1. 최상위(root) 객체인 window를 콘솔에 출력하세요.
-console.log(window) // Window { navigator, location }
+// console.log(window) // Window { navigator, location }
 
 // 2. window 객체의 navigator 속성을 통해 브라우저 정보를 출력하세요. (점 표기법 사용)
 
 // 객체의 속성에 접근
 // - 점(.) 표기법
-console.log(window.navigator.userAgent) // Navigator { userAgent }
+// console.log(window.navigator.userAgent) // Navigator { userAgent }
 // - 대괄호([]) 표기법
-console.log(window['navigator']['userAgent'])
+// console.log(window['navigator']['userAgent'])
 
 // 3. 위와 동일한 정보를 window를 생략하고 출력해 보세요. (전역 객체의 특징)
-console.log(navigator, typeof navigator) // 'object'
-console.log(navigator.userAgent, typeof navigator.userAgent) // 'string'
+// console.log(navigator, typeof navigator) // 'object'
+// console.log(navigator.userAgent, typeof navigator.userAgent) // 'string'
 
 
 // 설명:
@@ -44,14 +44,22 @@ console.log(navigator.userAgent, typeof navigator.userAgent) // 'string'
 // --------------------------------------------------------------------------
 
 // 1. 사용자에게 '유튜브 페이지로 이동할까요?'라고 묻는 
-//    확인창을 띄우고 결과를 변수 `userConfirm`에 담으세요.
-
-
+//    확인창(confirm)을 띄우고 결과를 변수 `userConfirm`에 담으세요.
+const moveToYoutube = window.confirm('유튜브 페이지로 이동할까요?')
+// console.log(moveToYoutube) // Boolean
 
 // 2. 조건문을 작성하세요.
 //    - [참일 때]: '네. 유튜브 페이지로 이동할게요!' 경고창(alert)을 띄우고,
 //      `window.location.href`를 'https://www.youtube.com'으로 변경하세요.
-//    - [거짓일 때]: '페이지 이동을 취소했어요.' 경고창을 띄우세요.
+if (moveToYoutube) {
+  window.alert('네. 유튜브 페이지로 이동할게요!')
+  window.location.href = 'https://www.youtube.com'
+}
+//    - [거짓일 때]: '네. 유튜브 페이지로 이동을 취소할게요!' 경고창을 띄우세요.
+else {
+  window.alert('네. 유튜브 페이지로 이동을 취소할게요!')
+}
+
 
 
 // 설명:
