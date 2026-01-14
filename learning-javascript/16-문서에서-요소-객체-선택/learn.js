@@ -136,6 +136,9 @@ console.log(allGames) // NodeList [li, li, li] (3)
 const allMusicans = musicianList.querySelectorAll('li')
 console.log(allMusicans)
 
+// name 속성 값이 'email'인 요소들을 수집
+const emails = document.getElementsByName('email')
+console.log(emails)
 
 // --------------------------------------------------------------------------
 // 그 밖의 요소 선택 API (참고)
