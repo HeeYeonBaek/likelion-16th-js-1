@@ -125,18 +125,31 @@ else {
 // classList.contains, classList.remove, classList.add
 
 let activeClassName = 'active'
-
 const hasActiveClass = targetElement.classList.contains(activeClassName)
 
-if (hasActiveClass) {
-  targetElement.classList.remove(activeClassName)
-} else {
-  targetElement.classList.add(activeClassName)
+// 기본 메서드 이름은 remove
+let methodName = 'remove'
+
+// 대상 요소(객체)의 클래스 이름을 제어
+// methodName 변수에 설정된 이름(문자열)의 기능 실행
+// targetElement.classList[methodName](activeClassName)
+// targetElement.classList // DOMTokenList { add, remove, ... }
+// DOMTokenList.add()    // 객체.속성
+// DOMTokenList['add']() // 객체['속성이름']
+
+// 만약 요소가 활성 클래스 이름을 포함하고 있다면
+if (!hasActiveClass) {
+  // 메서드 이름을 add로 변경
+  methodName = 'add'
 }
+
+// 메서드 이름은 가지고 있을 경우 'remove'
+// 가지고 있지 않을 경우에는 'add'
+targetElement.classList[methodName](activeClassName)
 
 // 편의를 위한 toggle() 메서드를 사용하는 경우
 // classList.toggle
-targetElement.classList.toggle(activeClassName)
+// targetElement.classList.toggle(activeClassName)
 
 
 // 설명:
