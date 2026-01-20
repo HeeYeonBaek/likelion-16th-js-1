@@ -12,7 +12,7 @@
 // 배열 객체 생성
 // --------------------------------------------------------------------------
 
-const members = [] // 배열 객체 (Array Object)
+// const members = [] // 배열 객체 (Array Object)
 const shoppingCart = [ '김', '참치', '오이', '단무지', '맛살' ]
 
 console.log(shoppingCart)
@@ -39,63 +39,85 @@ console.log(likeLionMembersArray)
 // --------------------------------------------------------------------------
 
 const allDatas = [
-  2026,
-  '2026년',
-  true,
-  null,
-  undefined,
-  Symbol(),
-  BigInt(2026),
-  new Object(),
-  new Array(),
-  new Function(),
+  2026, // 숫자 값 (0)
+  '2026년', // 문자 값 (1)
+  true, // 논리 값 (2)
+  null, // null 값 (3)
+  undefined, // undefined 값 (4)
+  Symbol(), // Symbol 값 (5)
+  BigInt(2026), // BigInt 값 (6)
+  {}, // new Object(), // 생성된 객체 (7)
+  [], // new Array(), // 생성된 배열 (객체) (8)
+  function() {} // new Function(), // 생성된 함수 (객체) (9)
 ]
 
 console.log(allDatas)
 
 
-
 // --------------------------------------------------------------------------
-// [시나리오 01] 손님 체크인과 방 배정
+// 배열이 포함하는 항목의 총 개수
 // --------------------------------------------------------------------------
 
-// 호텔 주인 관장님의 조언: "첫 번째 방은 0번이라네!" 
-
-// [퀴즈] 지율 지배인이 첫 번째 손님을 부르려면 어떻게 해야 할까요?
+const allDatasCount = allDatas.length
+console.log(allDatasCount)
 
 
 // --------------------------------------------------------------------------
-// [시나리오 02] 마지막 손님 찾기 (전통적 방식 vs 최신 방식)
+// 배열 항목 꺼내기 (항목의 위치를 인덱스로 가져옴)
 // --------------------------------------------------------------------------
 
-// 장부 확인 (총 인원)
+const firstData = allDatas[0]
+console.log(firstData, typeof firstData)
+const thirdData = allDatas[3 - 1]
+console.log(thirdData, typeof thirdData)
 
-// ⚠️ 잘못된 접근: rooms[3]은 빈 방(undefined)입니다. 인덱스는 0, 1, 2뿐이기 때문이죠.
+const unknownData = allDatas[100]
+console.log(unknownData)
 
-// 방법 A: 전통적인 계산 방식 (총 인원 - 1)
+if(!unknownData) {
+  console.log('allDatas는 100번째 인덱스가 없어요!')
+}
 
-// 방법 B: 만능 마스터 키 at() 사용 (추천)
+// --------------------------------------------------------------------------
+// 마지막 항목에 접근하는 방법 (전체 개수 - 1 또는 .at(-1))
+// --------------------------------------------------------------------------
+
+// 전통적이고, 많이 사용되던 방법
+let lastData = allDatas[allDatasCount - 1]
+console.log(lastData)
+console.log(typeof lastData)
+
+// 오늘날 사용 가능한 세련된 방법 (권장)
+lastData = allDatas.at(-1)
+console.log(lastData)
+console.log(typeof lastData)
 
 
 // --------------------------------------------------------------------------
-// [시나리오 03] 방 정보 수정 및 주의사항
+// 배열 인덱스의 항목 수정
 // --------------------------------------------------------------------------
 
-// 1번 방 손님이 바뀌었습니다.
+// 인덱스를 사용해 새 항목 추가
+console.log(allDatas[9]) // [숫자(0), ..., 함수(9)]
+allDatas[10] = 'add item' // [숫자(0), ..., 함수(9), 문자(10)]
+console.log(allDatas)
+console.log(allDatas.length)
+
+allDatas[allDatas.length] = '멋사 16기!!'
+
+console.log(allDatas)
 
 
-// ⚠️ 안티 패턴 주의: 중간 방을 비워두지 마세요!
-// rooms[10] = '새 손님' // 이렇게 하면 중간에 7개의 유령 방(empty/undefined)이 생깁니다.
+// 인덱스를 사용해 항목 수정
+// 1번 인덱스의 값을 수정
 
+// 1번방의 항목 가져오기(읽기)
+const secondItem = allDatas[1]
+console.log(secondItem)
 
-// --------------------------------------------------------------------------
-// 핵심 요약! (Array Mindset)
-// --------------------------------------------------------------------------
-// 1. 배열은 대괄호 []를 사용하여 만드는 것이 가장 대중적입니다.
-// 2. JavaScript의 숫자는 0부터 시작한다는 점을 잊지 마세요 (Zero-based indexing).
-// 3. 존재하지 않는 인덱스를 호출하면 에러 대신 undefined를 돌려받습니다.
-// 4. const로 선언한 배열이라도 그 내부의 손님(항목)은 언제든 바꿀 수 있습니다.
-// --------------------------------------------------------------------------
+// 1번방에 계산된 값 항목으로 설정하기(쓰기)
+allDatas[1] = parseInt(secondItem, 10)
+console.log(allDatas)
 
 
 
